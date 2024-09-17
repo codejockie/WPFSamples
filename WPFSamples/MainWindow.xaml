@@ -4,9 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFSamples"
+        xmlns:cs="clr-namespace:WPFSamples.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <cs:FlexPanel>
+            <Rectangle Fill="Blue" Height="50" />
+            <Rectangle Fill="Yellow" cs:FlexPanel.FlexWeight="1" cs:FlexPanel.Flex="True" />
+            <Rectangle Fill="Green" Height="50" />
+            <Rectangle Fill="Red" cs:FlexPanel.FlexWeight="2" cs:FlexPanel.Flex="True" />
+        </cs:FlexPanel>
+        <GridSplitter Grid.Row="1" Height="5" HorizontalAlignment="Stretch" />
+        <TextBlock Grid.Row="2"></TextBlock>
     </Grid>
 </Window>
