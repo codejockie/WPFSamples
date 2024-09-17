@@ -7,6 +7,9 @@
         xmlns:cs="clr-namespace:WPFSamples.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <local:SampleImageHelper x:Key="ImagePathHolder" />
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -20,6 +23,8 @@
             <Rectangle Fill="Red" cs:FlexPanel.FlexWeight="2" cs:FlexPanel.Flex="True" />
         </cs:FlexPanel>
         <GridSplitter Grid.Row="1" Height="5" HorizontalAlignment="Stretch" />
-        <TextBlock Grid.Row="2"></TextBlock>
+        <cs:Carousel Grid.Row="2"
+                     ItemsSource="{Binding Source={StaticResource ImagePathHolder}, Path=BitmapImages6}"
+                     x:Name="Scroller" />
     </Grid>
 </Window>
